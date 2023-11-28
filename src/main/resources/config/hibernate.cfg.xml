@@ -13,7 +13,7 @@
     </property>
 
     <!-- List of XML mapping files -->
-    <mapping resource="Developer.hbm.xml"/>
+    <mapping resource="config/Developer.hbm.xml"/>
 
 </session-factory>
 </hibernate-configuration>

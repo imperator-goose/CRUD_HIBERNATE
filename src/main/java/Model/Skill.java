@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Table(name = "HIBERNATE_SKILLS")
 public class Skill {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
     @Column(name = "NAME")

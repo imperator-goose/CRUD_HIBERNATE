@@ -4,17 +4,19 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="net.proselyte.hibernate.annotations.Developer" table="HIBERNATE_SPECIALTIES">
+    <class name="net.proselyte.hibernate.annotations.Developer" table="HIBERNATE_SKILLS">
         <meta attribute="class-description">
             This class contains developer details.
         </meta>
         <id name="id" type="int" column="id">
             <generator class="native"/>
         </id>
-        <property name="firstName" column="FIRST_NAME" type="string"/>
-        <property name="lastName" column="LAST_NAME" type="string"/>
-        <property name="specialty" column="SPECIALTY" type="string"/>
-        <property name="experience" column="EXPERIENCE" type="int"/>
+
+
+        <property name="NAME" column="NAME" type="string"/>
+        <property name="id" column="id" type="int"/>
+
+
     </class>
 
 </hibernate-mapping>

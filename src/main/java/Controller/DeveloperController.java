@@ -2,59 +2,33 @@ package Controller;
 
 import Model.Developer;
 import Repository.DeveloperRepository;
+import Repository.Impl.DeveloperRepositoryImpl;
 import Service.DeveloperService;
 
 import java.util.List;
 
 public class DeveloperController {
-    private DeveloperRepository developerRepository = new DeveloperRepository() {
-        @Override
-        public Developer getById(Integer integer) {
-            return null;
-        }
-
-        @Override
-        public void deleteById(Integer integer) {
-
-        }
-
-        @Override
-        public Developer save(Developer developer) {
-            return null;
-        }
-
-        @Override
-        public Developer update(Developer item) {
-            return null;
-        }
-
-        @Override
-        public List<Developer> getAll() {
-            return null;
-        }
-    };
-
-    private DeveloperService developerService = new DeveloperService(developerRepository);
+    private final DeveloperRepositoryImpl developerRepository = new DeveloperRepositoryImpl();
 
     public Developer create(Developer developer){
-        return developerService.save(developer);
+        return developerRepository.save(developer);
     }
 
     public Developer read(Integer id){
-        return developerService.getById(id);
+        return developerRepository.getById(id);
     }
 
-    public List<Developer> readAll(){
-        return developerService.getAll();
+    public List<Developer> getAll(){
+        return developerRepository.getAll();
     }
 
-    public void update(Developer developer){
-        developerService.update(developer);
+    public Developer update(Developer developer, Integer id){
+        developerRepository.update(developer,id);
+        return developer;
     }
 
-    public void delete(Integer id){
-        developerService.deleteById(id);
+    public Developer delete(Integer id){
+        return developerRepository.deleteById(id);
     }
-
 
 }

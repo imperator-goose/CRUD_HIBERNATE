@@ -2,22 +2,22 @@ package Service;
 
 import Model.Developer;
 import Repository.DeveloperRepository;
+import Repository.Impl.DeveloperRepositoryImpl;
 
 import java.util.List;
 
 public class DeveloperService implements DeveloperRepository {
-    DeveloperRepository developerRepository;
-    public DeveloperService(DeveloperRepository developerRepository){
-        this.developerRepository = developerRepository;
-    }
+
+    private DeveloperRepositoryImpl developerRepository;
+
     @Override
-    public Developer getById(Integer id) {
-        return developerRepository.getById(id);
+    public Developer getById(Integer integer) {
+        return developerRepository.getById(integer);
     }
 
     @Override
-    public void deleteById(Integer id) {
-        developerRepository.deleteById(id);
+    public Developer deleteById(Integer integer) {
+        return developerRepository.getById(integer);
     }
 
     @Override
@@ -26,8 +26,8 @@ public class DeveloperService implements DeveloperRepository {
     }
 
     @Override
-    public Developer update(Developer item) {
-        return developerRepository.update(item);
+    public Developer update(Developer item, Integer integer) {
+        return developerRepository.update(item,integer);
     }
 
     @Override

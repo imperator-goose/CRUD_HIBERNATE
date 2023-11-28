@@ -1,53 +1,34 @@
 package Controller;
 
+import Model.Skill;
 import Model.Specialty;
+import Repository.Impl.SpecialtyRepositoryImpl;
 import Repository.SpecialtyRepository;
 import Service.SpecialtyService;
 
 import java.util.List;
 
 public class SpecialtyController {
-    private SpecialtyRepository specialtyRepository = new SpecialtyRepository() {
-        @Override
-        public Specialty getById(Integer integer) {
-            return null;
-        }
+    private final SpecialtyRepositoryImpl specialtyRepository = new SpecialtyRepositoryImpl();
 
-        @Override
-        public void deleteById(Integer integer) {
+    public Specialty create(Specialty specialty){
+        return  specialtyRepository.save(specialty);
+    }
 
-        }
-
-        @Override
-        public Specialty save(Specialty specialty) {
-            return null;
-        }
-
-        @Override
-        public Specialty update(Specialty item) {
-            return null;
-        }
-
-        @Override
-        public List<Specialty> getAll() {
-            return null;
-        }
-    };
-
-    private SpecialtyService specialtyService = new SpecialtyService(specialtyRepository);
     public Specialty read(Integer id){
-        return specialtyService.getById(id);
+        return specialtyRepository.getById(id);
     }
 
-    public List<Specialty> readAll(){
-        return specialtyService.getAll();
+    public List <Specialty> getAll(){
+        return specialtyRepository.getAll();
     }
 
-    public void update(Specialty specialty){
-        specialtyService.update(specialty);
+    public Specialty update(Specialty specialty, Integer id){
+        specialtyRepository.update(specialty, id);
+        return specialty;
     }
 
-    public void delete(Integer id){
-        specialtyService.deleteById(id);
+    public Specialty delete(Integer id){
+        return specialtyRepository.deleteById(id);
     }
 }

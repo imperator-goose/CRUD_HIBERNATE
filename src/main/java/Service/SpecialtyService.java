@@ -1,23 +1,21 @@
 package Service;
 
 import Model.Specialty;
+import Repository.Impl.SpecialtyRepositoryImpl;
 import Repository.SpecialtyRepository;
 
 import java.util.List;
 
 public class SpecialtyService implements SpecialtyRepository{
-    SpecialtyRepository specialtyRepository;
-    public SpecialtyService(SpecialtyRepository specialtyRepository){
-        this.specialtyRepository = specialtyRepository;
-    }
+    private SpecialtyRepositoryImpl specialtyRepository;
     @Override
-    public Specialty getById(Integer id) {
-        return specialtyRepository.getById(id);
+    public Specialty getById(Integer integer) {
+        return specialtyRepository.getById(integer);
     }
 
     @Override
-    public void deleteById(Integer id) {
-        specialtyRepository.deleteById(id);
+    public Specialty deleteById(Integer integer) {
+        return specialtyRepository.deleteById(integer);
     }
 
     @Override
@@ -26,12 +24,12 @@ public class SpecialtyService implements SpecialtyRepository{
     }
 
     @Override
-    public Specialty update(Specialty item) {
-        return specialtyRepository.update(item);
+    public List<Specialty> getAll() {
+        return specialtyRepository.getAll();
     }
 
     @Override
-    public List<Specialty> getAll() {
-        return specialtyRepository.getAll();
+    public Specialty update(Specialty specialty, Integer id) {
+        return null;
     }
 }
