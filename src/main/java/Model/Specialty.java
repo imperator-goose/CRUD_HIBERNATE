@@ -1,19 +1,34 @@
 package Model;
 
-import lombok.Data;
+
+
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
 
+
 @Entity
 @Table(name = "HIBERNATE_SPECIALTIES")
-public class Specialty {
+public class  Specialty {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private Integer id;
+
     @Column(name = "NAME")
     private String name;
+
+    @Column(name = "status")
+    private Status status;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public Specialty() {
     }

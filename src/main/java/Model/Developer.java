@@ -4,12 +4,11 @@ package Model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "HIBERNATE_DEVELOPERS")
-
 public class Developer {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
@@ -24,12 +23,37 @@ public class Developer {
     @Column(name = "SPECIALTY")
     Specialty specialty;
 
+    @Column(name = "status")
+    private Status status;
 
 
     public Developer(){
 
     }
 
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public Developer(Integer id, String firstname, String lastname, List<Skill> skills, Specialty specialty) {
         this.id = id;

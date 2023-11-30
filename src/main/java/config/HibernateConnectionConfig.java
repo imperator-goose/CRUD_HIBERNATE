@@ -13,7 +13,7 @@ public class HibernateConnectionConfig {
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
-            sessionFactory = new Configuration().configure("config/hibernate.cfg.xml").
+            sessionFactory = new Configuration().configure("hibernate.cfg.xml").
                     buildSessionFactory();
         }
         return sessionFactory;
